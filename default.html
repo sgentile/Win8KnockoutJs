@@ -15,7 +15,7 @@
     <script src="/js/default.js"></script>
 </head>
 <body>
-    <p>Content goes here</p>
+    <p>Change a value and hit tab - the full name should be updated</p>
     <div>
         <label for="firstName">First Name:</label>
         <input id="firstName" data-bind="value: firstName" />
@@ -24,6 +24,6 @@
         <label for="lastName">Last Name:</label>
         <input id="lastName" data-bind="value: lastName" />
     </div>
-    FirstName: <span data-bind="text: fullName"></span>
+    Full Name (computed): <span data-bind="text: fullName"></span>
 </body>
 </html>
