@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Win8KnockoutJs</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0.RC/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0.RC/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0.RC/js/ui.js"></script>
+
+    <!-- Win8KnockoutJs references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/knockoutjs.js"></script>
+    <script src="/js/default.js"></script>
+</head>
+<body>
+    <p>Content goes here</p>
+    <div>
+        <label for="firstName">First Name:</label>
+        <input id="firstName" data-bind="value: firstName" />
+    </div>
+    <div>
+        <label for="lastName">Last Name:</label>
+        <input id="lastName" data-bind="value: lastName" />
+    </div>
+    FirstName: <span data-bind="text: fullName"></span>
+</body>
+</html>
