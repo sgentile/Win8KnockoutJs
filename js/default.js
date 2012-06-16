@@ -1,4 +1,5 @@
-﻿/// <reference path="knockoutjs.js" />
+﻿/// <reference path="jquery.js" />
+/// <reference path="knockoutjs.js" />
 
 // For an introduction to the Blank template, see the following documentation:
 // http://go.microsoft.com/fwlink/?LinkId=232509
@@ -9,17 +10,40 @@
     var activation = Windows.ApplicationModel.Activation;
     WinJS.strictProcessing();
 
-    function appViewModel() {
+
+    function AppViewModel() {
         this.self = this;
         this.firstName = ko.observable("Steve");
         this.lastName = ko.observable("Gentile");
+        this.sports = ko.observableArray();
         this.fullName = ko.computed(function () {
             return this.firstName() + " " + this.lastName();
         }, this.self);
     }
 
+    //separate options in binding
+    ko.bindingHandlers.stripe = {
+        update: function (element, valueAccessor, allBindingsAccessor) {
+            var value = ko.utils.unwrapObservable(valueAccessor()); //creates the dependency
+            var allBindings = allBindingsAccessor();
+            var even = allBindings.evenClass;
+            var odd = allBindings.oddClass;
+
+            //update odd rows
+            $(element).children(":nth-child(odd)").addClass(odd).removeClass(even);
+            //update even rows
+            $(element).children(":nth-child(even)").addClass(even).removeClass(odd);;
+        }
+    }
+
     function initialize() {
-        ko.applyBindings(new appViewModel());
+        var appViewModel = new AppViewModel();
+        ko.applyBindings(appViewModel);
+
+        appViewModel.sports.push({ name: "Golf" });
+        appViewModel.sports.push({ name: "Basketball" });
+        appViewModel.sports.push({ name: "Football" });
+        appViewModel.sports.push({ name: "Tennis" });
     }
 
     app.onactivated = function (args) {

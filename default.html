@@ -11,8 +11,10 @@
 
     <!-- Win8KnockoutJs references -->
     <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/jquery.js"></script>
     <script src="/js/knockoutjs.js"></script>
     <script src="/js/default.js"></script>
+	<link href="/css/Microsoft.VisualStudio.Blend.Html.Intrinsic.Flexbox.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <p>Change a value and hit tab - the full name should be updated</p>
@@ -25,5 +27,12 @@
         <input id="lastName" data-bind="value: lastName" />
     </div>
     Full Name (computed): <span data-bind="text: fullName"></span>
+	<!--<div class="ms-flexbox">
+		<div class="ms-flexone">One</div>
+		<div class="ms-flextwo">Two</div>
+	</div>-->
+    <div class="ms-flexbox" data-bind="foreach: sports, stripe: sports, evenClass: 'ms-flexone', oddClass: 'ms-flextwo'">
+       <div data-bind="text: name"></div>
+    </div>
 </body>
 </html>
